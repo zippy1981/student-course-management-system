@@ -2,7 +2,7 @@
 
 ## Docker setup
 
-1. run `docker-compose run web python manage.py migrate`
+1. run `docker-compose run web pipenv run python manage.py migrate`
 2. run `docker-compose up`
 3. navigate to http://localhost:8000 in your browser
 
