@@ -14,9 +14,10 @@ class DepartmentSerializer(serializers.HyperlinkedModelSerializer):
 
 class CourseSerializer(serializers.ModelSerializer):
     department = serializers.SlugRelatedField(
-        many=False,
-        read_only=True,
-        slug_field='name'
+        many = False,
+        read_only = False,
+        slug_field = 'name',
+        queryset = models.Department.objects.all()
      )
 
     class Meta:
