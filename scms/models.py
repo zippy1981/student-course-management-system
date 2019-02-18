@@ -9,7 +9,7 @@ class Student(models.Model):
     class Meta:
         unique_together = (("last_name", "first_name"),)
 
-    def fullName(self):
+    def full_name(self):
         """Full name"""
         return f'{self.first_name} {self.last_name}'
 
