@@ -17,6 +17,11 @@ class Department(models.Model):
     """Academic Department""" 
     name = models.CharField(max_length=30, unique=True)
 
+
+    def __str__(self):
+        # We need to override this to populate the drop down in the auto generated API page. 
+        return self.name
+
 class Course(models.Model):
     """Courses in the course catalog"""
 
@@ -33,7 +38,7 @@ class CourseInstance(models.Model):
 
     start_date = models.DateField(help_text='Course Start Date', verbose_name='Start Date')
     end_date = models.DateField(help_text='Course Start Date', verbose_name='Start Date')
-    course_id = models.ForeignKey(Course, on_delete=models.deletion.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.deletion.CASCADE)
 
 class CourseInstanceTime(models.Model):
     MON = 'MON'
@@ -57,7 +62,7 @@ class CourseInstanceTime(models.Model):
     day = models.CharField(choices=DAY_CHOICES, max_length=3)
     start_time = models.TimeField()
     end_time = models.TimeField()
-    course_instance_id = models.ForeignKey(CourseInstance, on_delete=models.deletion.CASCADE)
+    course_instance = models.ForeignKey(CourseInstance, on_delete=models.deletion.CASCADE)
 
 class StudentCourseEnrollment(models.Model):
     """Students scheduled to take a particualr course"""
