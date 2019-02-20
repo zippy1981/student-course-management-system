@@ -22,6 +22,7 @@ from scms import views
 router = routers.DefaultRouter()
 router.register(r'students', views.StudentViewSet)
 router.register(r'courses', views.CourseViewSet)
+router.register(r'courseSchedules', views.CourseInstanceViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -28,3 +28,26 @@ class CourseSerializer(serializers.ModelSerializer):
             'department',
             'course_number', 
             'credits')
+
+class CourseInstanceSerializer(serializers.ModelSerializer):
+    department = serializers.SlugRelatedField(
+        many = False,
+        read_only = True,
+        slug_field = 'name'
+    )
+    course = serializers.SlugRelatedField(
+        many = False,
+        read_only = False,
+        slug_field = 'course_number',
+        queryset = models.Course.objects.all()
+    )
+
+    class Meta:
+        model = models.CourseInstance
+        fields = (
+            'id', 
+            'department',
+            'course', 
+            'start_date',
+            'end_date',
+        )

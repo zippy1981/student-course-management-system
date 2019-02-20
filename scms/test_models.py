@@ -24,6 +24,18 @@ class StudentTestCase(TestCase):
             'Key (last_name, first_name)=(Dearing, Justin) already exists.',
             lambda: models.Student.objects.create(first_name="Justin", last_name="Dearing"))       
 
+class DepartmentTestCase(TestCase):
+    
+    def setUp(self):
+        models.Department.objects.create(name='Math')
+        models.Department.objects.create(name='Art')
+        models.Department.objects.create(name='Science')
+
+    def test_str(self):
+        for dept in models.Department.objects.all():
+            self.assertEqual(dept.name, f'{dept}')
+            self.assertEqual(dept.name, dept.__str__())
+
 class CourseTestCase(TestCase):
     def setUp(self):
         mathDepartment = models.Department.objects.create(name='Math')

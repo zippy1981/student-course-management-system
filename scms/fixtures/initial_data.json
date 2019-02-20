@@ -1,0 +1,86 @@
+[
+{
+  "model": "scms.student",
+  "pk": 1,
+  "fields": {
+    "first_name": "Justin",
+    "last_name": "Dearing"
+  }
+},
+{
+  "model": "scms.student",
+  "pk": 2,
+  "fields": {
+    "first_name": "Tom",
+    "last_name": "Smith"
+  }
+},
+{
+  "model": "scms.student",
+  "pk": 3,
+  "fields": {
+    "first_name": "Bob",
+    "last_name": "Smith"
+  }
+},
+{
+  "model": "scms.department",
+  "pk": 1,
+  "fields": {
+    "name": "Math"
+  }
+},
+{
+  "model": "scms.department",
+  "pk": 2,
+  "fields": {
+    "name": "English"
+  }
+},
+{
+  "model": "scms.department",
+  "pk": 3,
+  "fields": {
+    "name": "History"
+  }
+},
+{
+  "model": "scms.course",
+  "pk": 1,
+  "fields": {
+    "course_name": "Pre Calc",
+    "department": 1,
+    "course_number": "101",
+    "credits": 3
+  }
+},
+{
+  "model": "scms.course",
+  "pk": 2,
+  "fields": {
+    "course_name": "Calc I",
+    "department": 1,
+    "course_number": "200",
+    "credits": 3
+  }
+},
+{
+  "model": "scms.course",
+  "pk": 3,
+  "fields": {
+    "course_name": "Calc II",
+    "department": 1,
+    "course_number": "201",
+    "credits": 3
+  }
+},
+{
+  "model": "scms.courseinstance",
+  "pk": 1,
+  "fields": {
+    "start_date": "2019-02-20",
+    "end_date": "2019-06-20",
+    "course": 1
+  }
+}
+]

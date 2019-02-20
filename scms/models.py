@@ -14,9 +14,9 @@ class Student(models.Model):
         return f'{self.first_name} {self.last_name}'
 
 class Department(models.Model):
-    """Academic Department""" 
-    name = models.CharField(max_length=30, unique=True)
+    """Academic Department"""
 
+    name = models.CharField(max_length=30, unique=True)
 
     def __str__(self):
         # We need to override this to populate the drop down in the auto generated API page. 
@@ -30,6 +30,10 @@ class Course(models.Model):
     course_number = models.DecimalField(decimal_places=0, max_digits=3, unique=True)
     credits = models.IntegerField()
 
+    def __str__(self):
+        # We need to override this to populate the drop down in the auto generated API page. 
+        return f'{self.department}-{self.course_number} {self.course_name}'
+
     class Meta:
         unique_together = (("department", "course_number"),)
 
@@ -37,7 +41,7 @@ class CourseInstance(models.Model):
     """A Scheduled running of a particular coursee"""
 
     start_date = models.DateField(help_text='Course Start Date', verbose_name='Start Date')
-    end_date = models.DateField(help_text='Course Start Date', verbose_name='Start Date')
+    end_date = models.DateField(help_text='Course End Date', verbose_name='End Date')
     course = models.ForeignKey(Course, on_delete=models.deletion.CASCADE)
 
 class CourseInstanceTime(models.Model):

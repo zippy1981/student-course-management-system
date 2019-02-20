@@ -14,3 +14,11 @@ class CourseViewSet(viewsets.ModelViewSet):
     """
     queryset = models.Course.objects.all().order_by('department__name','course_number')
     serializer_class = serializers.CourseSerializer
+
+
+class CourseInstanceViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows instances of courses to be viewed or edited.
+    """
+    queryset = models.CourseInstance.objects.all().order_by('course__department__name','course__course_number', 'start_date')
+    serializer_class = serializers.CourseInstanceSerializer
