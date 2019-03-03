@@ -5,6 +5,12 @@ services:
     image: postgres
   web:
     build: .
+    environment:
+      - DJANGO_DB_ENGINE=django.db.backends.postgresql
+      - DJANGO_DB_NAME=postgres
+      - DJANGO_DB_USER=postgres
+      - DJANGO_DB_HOST=db
+      - DJANGO_DB_PORT=5432
     command: pipenv run python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code

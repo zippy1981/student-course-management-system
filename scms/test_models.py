@@ -19,9 +19,8 @@ class StudentTestCase(TestCase):
         models.Student.objects.create(first_name="Bob", last_name="Smith")
 
     def test_no_duplicate_name(self):
-        self.assertRaisesMessage(
+        self.assertRaises(
             IntegrityError, 
-            'Key (last_name, first_name)=(Dearing, Justin) already exists.',
             lambda: models.Student.objects.create(first_name="Justin", last_name="Dearing"))       
 
 class DepartmentTestCase(TestCase):

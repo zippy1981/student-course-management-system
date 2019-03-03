@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'scms.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432
+        'ENGINE': os.getenv('DJANGO_DB_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.getenv('DJANGO_DB_NAME', 'db.sqlite3'),
+        'USER': os.getenv('DJANGO_DB_USER', None),
+        'HOST': os.getenv('DJANGO_DB_HOST', None),
+        'PORT': os.getenv('DJANGO_DB_PORT', None)
     }
 }
 
