@@ -18,7 +18,7 @@ You have two options for running this in a development environment. You can use 
 
 The main advantages of running outside of docker are you don't need docker installed, and I haven't figured out how to get step through debugging working from PyCharm or Visual Studio code from inside the container.
 
-# Running on bare metal with pipenv with a SQLite back end
+### Running on bare metal with pipenv with a SQLite back end
 
 1. If you haven't already done so install [pipenv](https://pipenv.readthedocs.io/en/latest/).
 2. run `pipenv install`
@@ -28,7 +28,7 @@ The main advantages of running outside of docker are you don't need docker insta
 6. run `python manage.py runserver 0.0.0.0:8000`
 7. navigate to <http://localhost:8000> in your browser
 
-## Notes about docker and pipenv
+### Notes about docker and pipenv
 
 This project uses [pipenv](https://pipenv.readthedocs.io/en/latest/) inside its docker container to manage dependencies insted of manually using `virtualenv` and `pip` with `requirements.txt`.
 To run a command inside the pipenv virtualenv locally, you must use the command `pipenv run command [args]`.
@@ -37,7 +37,7 @@ Therefore, to run a command inside the pipenv, inside the **already running runn
 
 If you want to start a new container (e.g. if you don't have the web server running) to run a command just replace `docker-compose exec` with `docker-compose run`. Note that this will cause the db container to start up and remain running.
 
-## Docker setup
+### Docker setup
 
 1. run `docker-compose run web pipenv run python manage.py migrate`
 2. run `docker-compose up -d` or to to keep a tail of the container console messages  in a new terminal omit the -d (i.e. `docker-compose up`)
@@ -45,7 +45,7 @@ If you want to start a new container (e.g. if you don't have the web server runn
 4. run `docker-compose exec web pipenv run python manage.py createsuperuser` and enter auth information
 5. navigate to <http://localhost:8000> in your browser
 
-### Resetting the envinment
+#### Resetting the envinment
 
 If you want to start with a clean databaase the quickest way is with the following commands:
 
@@ -54,9 +54,9 @@ If you want to start with a clean databaase the quickest way is with the followi
 3. `docker-compose exec web pipenv run python manage.py migrate`
 4. `docker-compose exec web pipenv run python manage.py loaddata initial_data.json`
 
-### Connecting to the database for local devugging, etc
+#### Connecting to the database for local devugging, etc
 
-1. Create a docker-compose.override.yml with the following:
+Create a docker-compose.override.yml with the following:
 
 ```yml
 version: '3.4'
