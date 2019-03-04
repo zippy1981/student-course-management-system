@@ -6,6 +6,8 @@ This started as an assignment for a job I was applying for. My python was rusty 
 
 It's still a work in progress at the moment. I intend on demonstrating proper devop techniques e.g:
 
+[![CircleCI](https://circleci.com/gh/zippy1981/student-course-management-system.svg?style=svg)](https://circleci.com/gh/zippy1981/student-course-management-system) 
+
 * database is configurable by environment variables
 * logging is configured y environment variables
 * CI upon commitment (in progress)
