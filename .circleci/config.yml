@@ -29,7 +29,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            pip install --user pipenv
+            sudo pip install pipenv # if I do `pip install --user pipenv` it doesnt' show up on the path.
             pipenv install
 
       - save_cache:
